@@ -41,10 +41,10 @@ describe('SimpleDataTableComponent', () => {
 
   it('should create a table with given data', () => {
     component.data = [
-      { name: 'Marc Remijn', dept: 'external', room: 'H2 05' },
-      { name: 'Jeroen de Jong', dept: 'FSE', room: 'H2 05' },
-      { name: 'Kaie Potti', dept: 'FSE', room: 'H2 05' },
-      { name: 'Ewald Snel', dept: 'FSE', room: 'F2 06' }
+      { name: 'Dan Pearson', dept: 'external', room: 'H2 05' },
+      { name: 'Chris Young', dept: 'FSE', room: 'H2 05' },
+      { name: 'Kate Driscoll', dept: 'FSE', room: 'H2 05' },
+      { name: 'Peter Smith', dept: 'FSE', room: 'F2 06' }
     ];
     component.ngOnInit();
     fixture.detectChanges();
@@ -62,8 +62,8 @@ describe('SimpleDataTableComponent', () => {
 
   it('should create a table with the custom column headers', () => {
     component.data = [
-      { name: 'Jeroen de Jong', dept: 'FSE', room: 'H2 05' },
-      { name: 'Kaie Potti', dept: 'FSE', room: 'H2 05' },
+      { name: 'Chris Young', dept: 'FSE', room: 'H2 05' },
+      { name: 'Kate Driscoll', dept: 'FSE', room: 'H2 05' },
     ];
     component.dataFieldNames = {
       name: 'Naam',
@@ -77,10 +77,10 @@ describe('SimpleDataTableComponent', () => {
 
   });
 
-  it('should emit an rowClicked event with id "Jeroen de Jong" when first row is clicked', () => {
+  it('should emit an rowClicked event with id "Chris Young" when first row is clicked', () => {
     component.data = [
-      { name: 'Jeroen de Jong', dept: 'FSE', room: 'H2 05' },
-      { name: 'Kaie Potti', dept: 'FSE', room: 'H2 05' },
+      { name: 'Chris Young', dept: 'FSE', room: 'H2 05' },
+      { name: 'Kate Driscoll', dept: 'FSE', room: 'H2 05' },
     ];
     let id = null;
     component.ngOnInit();
@@ -90,13 +90,13 @@ describe('SimpleDataTableComponent', () => {
     // Simulate click on first row
     tableElement.query(By.css('td')).parent.triggerEventHandler('click', null);
     fixture.detectChanges();
-    expect(id).toBe('Jeroen de Jong');
+    expect(id).toBe('Chris Young');
   });
 
   it('should emit an rowClicked event with id "H2 05" when first row is clicked', () => {
     component.data = [
-      { name: 'Jeroen de Jong', dept: 'FSE', room: 'H2 05' },
-      { name: 'Kaie Potti', dept: 'FSE', room: 'H2 06' },
+      { name: 'Chris Young', dept: 'FSE', room: 'H2 05' },
+      { name: 'Kate Driscoll', dept: 'FSE', room: 'H2 06' },
     ];
     component.idField = 'room';
     let id = null;
