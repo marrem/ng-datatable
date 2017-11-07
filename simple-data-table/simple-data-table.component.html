@@ -1,0 +1,12 @@
+<table [ngClass]="tableClasses">
+  <tr>
+    <th *ngFor="let field of dataFields">
+      {{dataFieldNames[field]}}
+    </th>
+  </tr>
+  <tr *ngFor="let record of data" (click)="onClick(record[idField])">
+    <td *ngFor="let field of dataFields">
+      {{record[field]}}
+    </td>
+  </tr>
+</table>
